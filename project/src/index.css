@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-blue-50 to-indigo-50;
+  }
+}
+
+@layer components {
+  .search-container {
+    @apply relative z-10;
+    background-image: url('https://images.unsplash.com/photo-1585435557343-3b092031a831?w=2400&auto=format&fit=crop&q=80');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .search-container::before {
+    content: '';
+    @apply absolute inset-0 bg-blue-900/70 z-0;
+  }
+
+  .card-hover {
+    @apply transition-transform duration-300 hover:scale-102 hover:shadow-lg;
+  }
+
+  .input-style {
+    @apply transition-all duration-200 border-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-200;
+  }
+
+  .button-primary {
+    @apply bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 
+           transition-all duration-200 transform hover:scale-102 hover:shadow-lg text-white font-semibold
+           rounded-lg px-6 py-2;
+  }
+
+  .button-secondary {
+    @apply bg-gray-100 hover:bg-gray-200 text-gray-800 transition-all duration-200
+           transform hover:scale-102 rounded-lg px-6 py-2;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
